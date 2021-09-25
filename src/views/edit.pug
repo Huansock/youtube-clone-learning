@@ -1,0 +1,11 @@
+extends base.pug
+
+block content   
+    h4 영상 제목 수정하기
+    //- 어디로 백엔드 데이터를 보낼지는 action에 달려있다.
+    form(method="POST") 
+        input(type="text", name="title", placeholder="Title", required, minLength = 5, maxlength= 100, value=video.title)
+        input(type="text", name="description", placeholder="Description", required, value=video.description, )
+        input(type="text", name="hashtags", placeholder="Hashtags seperated by comma.", required,minLength= 20,
+        maxlength= 200,value=video.hashtags.join())
+        input(value="save", type="submit")

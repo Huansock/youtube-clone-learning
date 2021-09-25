@@ -1,0 +1,18 @@
+extends base.pug
+
+block content
+    if errorMessage
+        span=errorMessage
+    form(method="POST",)
+        input(placeholder="Name",name="name", type="text", required)
+        input(placeholder="email",name="email", type="email", required)
+        input(placeholder="username",name="username", type="text", required)
+        input(placeholder="password",name="password", type="password", required)
+        input(placeholder="password checker",name="password2", type="password", required)
+        input(placeholder="location",name="location", type="text", required)
+        input(type="Submit", value="join")
+
+    hr
+    div 
+        span 이미 계정이 있으심? 
+        a(href="/login") 로그인 하셈&rarr;

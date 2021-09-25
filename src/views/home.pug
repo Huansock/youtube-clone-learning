@@ -1,0 +1,10 @@
+extends base.pug
+include mixins/video
+
+block content 
+    
+    h2 여기서 당신은 홈페이지를 볼 수 있어요.
+    a(href="/videos/upload") upload
+    each video in videos
+       +video(video)
+            

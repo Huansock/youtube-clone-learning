@@ -1,0 +1,11 @@
+extends base.pug
+
+block content 
+    if errormessage 
+        span=errormessage
+    form#videoForm(method="POST")
+        input(type="text", name="title", placeholder="Title", required, minLength = 1, maxlength= 100)
+        input(type="text", name="description", placeholder="Description", required, )
+        input(type="text", name="hashtags", placeholder="Hashtags seperated by comma.", required,minLength= 1,
+        maxlength= 200,)
+        input(value="save", type="submit")
