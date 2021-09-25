@@ -181,13 +181,15 @@ export const postEdit = async (req, res) => {
       location
     }
   } = req;
-  await User.findByIdAndUpdate(_id, {
+  const updatedUser = await User.findByIdAndUpdate(_id, {
     name,
     email,
     username,
     location
-  })
-
-  return res.render("edit-profile");
+  }, {
+    new: ture
+  });
+  req.session.user = updatedUser;
+  return res.redirect("/users/eidt");
 };
 export const see = (req, res) => res.send("See User");
