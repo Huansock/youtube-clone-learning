@@ -171,7 +171,7 @@ export const postEdit = async (req, res) => {
   const {
     session: {
       user: {
-        _id
+        _id,
       },
     },
     body: {
@@ -181,17 +181,32 @@ export const postEdit = async (req, res) => {
       location
     }
   } = req;
+  const currentUser = req.session.user;
+  if (currentUser.username !== username) {
+    const usernameCheck = User.exists({
+      username
+    })
+    if (usernameCheck) {
+      return res.send("this username has already taken")
+    }
+  }
+  if (currentUser.email !== email) {
+    const emailCheck = User.exists({
+      email
+    })
+    if (emailCheck) {
+      return res.send("this email has already taken")
+    }
+  }
   const updatedUser = await User.findByIdAndUpdate(_id, {
     name,
     email,
     username,
     location
   }, {
-    new: ture
+    new: true
   });
   req.session.user = updatedUser;
-  return res.redirect("/users/eidt");
+  return res.redirect("/users/edit");
 };
 export const see = (req, res) => res.send("See User");
-
-// 지금은 씨발아
