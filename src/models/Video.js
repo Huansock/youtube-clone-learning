@@ -38,6 +38,10 @@ const videoSchema = new mongoose.Schema({
             default: 0,
             required: true,
         },
+        fileUrl: {
+            type: String,
+            required: true,
+        }
     }
 });
 

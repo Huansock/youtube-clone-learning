@@ -41,6 +41,7 @@ app.use(session({
 }));
 
 app.use(localsmiddleware);
+app.use("/uploads", express.static("uploads"))
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
