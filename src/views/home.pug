@@ -2,9 +2,7 @@ extends base.pug
 include mixins/video
 
 block content 
-    
-    h2 여기서 당신은 홈페이지를 볼 수 있어요.
-    a(href="/videos/upload") upload
+    h1(style="text-align:center;") 영상 목록
     each video in videos
        +video(video)
             
