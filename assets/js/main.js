@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/client/js/main.js":
@@ -15,7 +16,6 @@
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/style.scss */ \"./src/client/scss/style.scss\");\n\nconsole.log(\"hi\");\n\n//# sourceURL=webpack://youtube-clone/./src/client/js/main.js?");
 
 /***/ }),
@@ -24,9 +24,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scs
 /*!************************************!*\
   !*** ./src/client/scss/style.scss ***!
   \************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("throw new Error(\"Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\\nSassError: Can't find stylesheet to import.\\n  ╷\\n2 │ @import \\\"./congif/reset\\\";\\n  │         ^^^^^^^^^^^^^^^^\\n  ╵\\n  src/client/scss/style.scss 2:9  root stylesheet\\n    at processResult (/home/schmatz/youtube-clone/node_modules/webpack/lib/NormalModule.js:721:19)\\n    at /home/schmatz/youtube-clone/node_modules/webpack/lib/NormalModule.js:827:5\\n    at /home/schmatz/youtube-clone/node_modules/loader-runner/lib/LoaderRunner.js:399:11\\n    at /home/schmatz/youtube-clone/node_modules/loader-runner/lib/LoaderRunner.js:251:18\\n    at context.callback (/home/schmatz/youtube-clone/node_modules/loader-runner/lib/LoaderRunner.js:124:13)\\n    at /home/schmatz/youtube-clone/node_modules/sass-loader/dist/index.js:54:7\\n    at Function.call$2 (/home/schmatz/youtube-clone/node_modules/sass/sass.dart.js:95825:16)\\n    at _render_closure1.call$2 (/home/schmatz/youtube-clone/node_modules/sass/sass.dart.js:83882:12)\\n    at _RootZone.runBinary$3$3 (/home/schmatz/youtube-clone/node_modules/sass/sass.dart.js:28060:18)\\n    at _FutureListener.handleError$1 (/home/schmatz/youtube-clone/node_modules/sass/sass.dart.js:26590:21)\");\n\n//# sourceURL=webpack://youtube-clone/./src/client/scss/style.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://youtube-clone/./src/client/scss/style.scss?");
 
 /***/ })
 

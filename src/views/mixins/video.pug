@@ -1,11 +1,8 @@
-mixin video(변수)
-    div 
-        h4
-            a(href=`/videos/${변수.id}`)=변수.title 
-            p=변수.descripton
-            ul 
-                each hashtags in 변수.hashtags
-                    li=hashtags
-            small=변수.createdAt 
-            hr  
-            
+mixin video(video)
+    a(href=`/videos/${video.id}`).video-mixin
+        div.video-mixin__thumb
+        div.video-mixin__data
+            span.video-mixin__title=video.title
+            div.video-mixin__meta
+                span #{video.owner.name} • 
+                span #{video.meta.views} 회
