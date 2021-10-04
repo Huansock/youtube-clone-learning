@@ -11,13 +11,15 @@ const fullScreenBtn = document.getElementById("fullScreen")
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer")
 const videoControls = document.getElementById("videoControls");
+if (window.history.scrollRestoration) {
+    console.log("ok")
+}
+
 
 
 const formatTime = (seconds) => new Date(seconds * 1000).toISOString().substr(14, 5);
 let countDown = null;
 let volumValue = 0.5;
-video.volume = volumValue;
-
 
 const handlePlayClick = (e) => {
     if (video.paused) {
@@ -78,10 +80,12 @@ const handleTimelineChange = (event) => {
 
 const handleFullScreen = () => {
     const fullscreen = document.fullscreenElement;
+    console.log("💜🙂", window.scrollY)
     if (fullscreen) {
         document.exitFullscreen();
         fullScreenIcon.classList = "fas fa-expand";
-
+        // handleChangeScroll();
+        console.log("💜", window.scrollY)
     } else {
         videoContainer.requestFullscreen();
         fullScreenIcon.classList = "fas fa-compress";
@@ -131,6 +135,24 @@ const handleLoadedMetadata2 = (event) => {
     timeline.max = Math.floor(event.srcElement.duration);
 };
 
+const STORAGE_KEY = 'video-scroll-position-y'
+const handleScroll = () => {
+    const currentScroll = window.scrollY
+    window.sessionStorage.setItem(STORAGE_KEY, currentScroll)
+    console.log(currentScroll)
+}
+const handleChangeScroll = () => {
+    const y = sessionStorage.getItem(STORAGE_KEY) || 0
+    window.scrollTo(0, y)
+}
+const handleEnded = () => {
+    const {
+        id
+    } = videoContainer.dataset
+    fetch(`/api/videos/${id}/view`, {
+        method: "POST",
+    });
+}
 if (video.readyState === 4) {
     totalTime.innerText = formatTime(Math.floor(video.duration));
     timeline.max = Math.floor(video.duration);
@@ -145,6 +167,10 @@ videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
 document.addEventListener("keydown", handleKeyDown);
+document.addEventListener("scroll", handleScroll)
+window.addEventListener("load", handleChangeScroll)
 // video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("loadedmetadata", handleLoadedMetadata2)
-video.addEventListener("click", handlePlayClick)
+video.addEventListener("click", handlePlayClick);
+video.addEventListener("ended", handleEnded);
+window.history.scrollRestoration = 'manual'

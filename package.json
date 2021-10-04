@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Huansock/youtube-clone-learning#readme",
   "dependencies": {
+    "@ffmpeg/core": "^0.10.0",
+    "@ffmpeg/ffmpeg": "^0.10.1",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
     "dotenv": "^10.0.0",
@@ -27,7 +29,8 @@
     "morgan": "^1.10.0",
     "multer": "^1.3.0",
     "node-fetch": "^2.6.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

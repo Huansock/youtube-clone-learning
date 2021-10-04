@@ -1,7 +1,7 @@
 extends base.pug
 
 block content  
-    div#videoContainer
+    div#videoContainer(data-id=video._id)
         video(src="/" + video.fileUrl)
         div#videoControls.videoControls 
             div.videoControls__play
@@ -18,6 +18,6 @@ block content
                     i.fas.fa-volume-up
             div 
                 span#fullScreen 
-                i.fas.fa-expand
+                    i.fas.fa-expand
 block scripts
     script(src="/static/js/videoPlayer.js")    
