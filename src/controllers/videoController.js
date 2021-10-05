@@ -73,6 +73,7 @@ export const getEdit = async (req, res) => {
     })
   }
   if (String(video.owner) !== String(_id)) {
+    req.flash("error", "Not authorized");
     return res.status(403).redirect("/");
   }
   return res.render("edit", {
@@ -110,6 +111,7 @@ export const postEdit = async (req, res) => {
     description,
     hashtags: Video.formatHashtags(hashtags),
   });
+  req.flash("success", "Changes saved.");
   return res.redirect(`/videos/${id}`);
 
 };
@@ -129,10 +131,12 @@ export const deleteVideo = async (req, res) => {
     })
   };
   if (String(video.owner) !== String(_id)) {
+    req.flash("error", "You are not the the owner of the video.");
     return res.status(403).redirect("/");
   }
   await Video.findByIdAndDelete(id);
   //delete video
+
   return res.redirect("/");
 }
 
@@ -150,8 +154,9 @@ export const postUpload = async (req, res) => {
     }
   } = req.session;
   const {
-    path: fileUrl
-  } = req.file;
+    video,
+    thumb
+  } = req.files;
   const {
     title,
     description,
@@ -161,7 +166,8 @@ export const postUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl,
+      fileUrl: video[0].path,
+      thumbUrl: thumb[0].path,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     })

@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 // 쿠키틀
 const videoSchema = new mongoose.Schema({
+    thumbUrl: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true,

@@ -10,7 +10,8 @@ form {
   }
 //   &not 이랑 $alpha 용도가 뭘까용?
 
-input:not([type="range"]) {
+input:not([type="range"]),
+input[type="submit"] {
     all: unset;
     padding: 15px 20px;
     border-radius: 5px;
@@ -29,9 +30,17 @@ input:not([type="range"]) {
 .social__btn {
   border-radius: 5px;
   padding: 12px 20px;
-  background-color: white;
+  background-color: white ;
   color: rgba($color: $red, $alpha: 1);
-  text-align: center;
+  text-align: center !important;
   cursor: pointer;
   display: block;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 }

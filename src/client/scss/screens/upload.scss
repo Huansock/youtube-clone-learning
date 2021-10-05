@@ -1,0 +1,19 @@
+.upload__container {
+    width: 100%;
+    align-items: center;
+    .upload__video {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      video {
+        max-width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    .uploadSubmit{
+      color: rgb(239, 255, 255);
+      background-color: rgb(185, 202, 255);
+      margin-top: 20px;
+    }
+  }
