@@ -11,12 +11,12 @@ import {
     getChangePassword,
     postChangePassword,
 
-} from "../controllers/userController";
+} from "../controllers/userController.js";
 import {
     protectorMiddleware,
     publicOnlyMiddleware,
     avatarUpload
-} from "../middleware";
+} from "../middleware.js";
 
 const userRouter = express.Router();
 

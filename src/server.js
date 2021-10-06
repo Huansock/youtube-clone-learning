@@ -9,13 +9,13 @@ import MongoStore from "connect-mongo";
 
 
 // 다른 파일에서 익스포트한 변수를 여기로 가져옵시다
-import rootRouter from "./routers/rootRouter";
-import videoRouter from "./routers/videoRouters";
-import userRouter from "./routers/userRouters";
+import rootRouter from "./routers/rootRouter.js";
+import videoRouter from "./routers/videoRouters.js";
+import userRouter from "./routers/userRouters.js";
 import {
     localsmiddleware
-} from "./middleware";
-import apiRouter from "./routers/apiRouter";
+} from "./middleware.js";
+import apiRouter from "./routers/apiRouter.js";
 import flash from "express-flash";
 
 const app = express();

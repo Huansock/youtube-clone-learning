@@ -1,9 +1,10 @@
-import "dotenv/config";
-import "./db"
-import "./models/Video";
-import "./models/User";
-import app from "./server"
-import "./models/Comment";
+import "regenerator-runtime";
+import "dotenv/config.js";
+import "./db.js";
+import "./models/Video.js";
+import "./models/User.js";
+import app from "./server.js"
+import "./models/Comment.js";
 
 const PORT = 3000;
 

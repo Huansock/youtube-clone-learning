@@ -1,7 +1,7 @@
-import User from "../models/User";
+import User from "../models/User.js";
 import bcrypt from 'bcryptjs';
 import fetch from 'node-fetch';
-import Video from "../models/Video";
+import Video from "../models/Video.js";
 
 export const getJoin = (req, res) => res.render("join", {
   pageTitle: "Join"

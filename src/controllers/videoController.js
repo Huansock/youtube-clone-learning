@@ -1,8 +1,8 @@
 import
-Video from "../models/Video"
+Video from "../models/Video.js"
 import
-User from "../models/User"
-import Comment from "../models/Comment";
+User from "../models/User.js"
+import Comment from "../models/Comment.js";
 export const trending = async (req, res) => {
   try {
     const videos = await Video.find({})
@@ -30,14 +30,17 @@ export const search = async (req, res) => {
   if (keyword) {
     videos = await Video.find({
       title: {
-        $regex: new RegExp(`${keyword}$`, "i").populate("owner"),
+        $regex: new RegExp(`[${keyword}]`, "i"),
       },
-    });
+    }).populate("owner");
   }
   return res.render("search", {
     pageTitle: "Search",
     videos
-  });
+  })
+  if (!keyword) {
+    return res.sendStatus(404);
+  };
 };
 export const watch = async (req, res) => {
   const {

@@ -3,10 +3,10 @@ import {
     createComment,
     registerView,
     deleteComment,
-} from "../controllers/videoController";
+} from "../controllers/videoController.js";
 import {
     protectorMiddleware
-} from "../middleware";
+} from "../middleware.js";
 
 const apiRouter = express.Router();
 
