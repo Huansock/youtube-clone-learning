@@ -17,6 +17,7 @@
 @import "./screens/profile.scss";
 @import "./screens/edit-profile.scss";
 @import "./screens/upload.scss";
+@import "./screens/watch.scss";
 // Defaults
 a {
   color: inherit;
@@ -48,7 +49,7 @@ main {
   border-radius: 10000px;
   text-align: center;
   animation: goAway 0.5s ease-in-out forwards;
-  animation-delay: 5s;
+  animation-delay: 2s;
   &.error {
     background-color: tomato;
     color: white;

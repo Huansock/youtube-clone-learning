@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const videoSchema = new mongoose.Schema({
     thumbUrl: {
         type: String,
-        required: true
+        required: false,
     },
     title: {
         type: String,
@@ -51,7 +51,11 @@ const videoSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: "User"
-    }
+    },
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment"
+    }, ],
 });
 
 videoSchema.static("formatHashtags", function (hashtags) {

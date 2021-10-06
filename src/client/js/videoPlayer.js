@@ -11,9 +11,7 @@ const fullScreenBtn = document.getElementById("fullScreen")
 const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer")
 const videoControls = document.getElementById("videoControls");
-if (window.history.scrollRestoration) {
-    console.log("ok")
-}
+if (window.history.scrollRestoration) {}
 
 
 
@@ -80,12 +78,12 @@ const handleTimelineChange = (event) => {
 
 const handleFullScreen = () => {
     const fullscreen = document.fullscreenElement;
-    console.log("💜🙂", window.scrollY)
+
     if (fullscreen) {
         document.exitFullscreen();
         fullScreenIcon.classList = "fas fa-expand";
         // handleChangeScroll();
-        console.log("💜", window.scrollY)
+
     } else {
         videoContainer.requestFullscreen();
         fullScreenIcon.classList = "fas fa-compress";
@@ -110,6 +108,7 @@ const handleMouseLeave = () => {
 
 const handleKeyDown = (event) => {
     if (event.key === " ") {
+        event.preventDefault();
         handlePlayClick();
 
     }
@@ -139,7 +138,6 @@ const STORAGE_KEY = 'video-scroll-position-y'
 const handleScroll = () => {
     const currentScroll = window.scrollY
     window.sessionStorage.setItem(STORAGE_KEY, currentScroll)
-    console.log(currentScroll)
 }
 const handleChangeScroll = () => {
     const y = sessionStorage.getItem(STORAGE_KEY) || 0
@@ -166,7 +164,7 @@ videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
-document.addEventListener("keydown", handleKeyDown);
+document.getElementById("videoContainer").addEventListener("keydown", handleKeyDown);
 document.addEventListener("scroll", handleScroll)
 window.addEventListener("load", handleChangeScroll)
 // video.addEventListener("loadeddata", handleLoadedMetadata);

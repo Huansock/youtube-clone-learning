@@ -152,16 +152,15 @@ export const finishGithubLogin = async (req, res) => {
     }
     req.session.loggedIn = true;
     req.session.user = realuser;
-    console.log(req.session.user);
     return res.redirect("/");
   } else {
     return res.redirect("/login");
   }
 };
 
-export const logout = (req, res) => {
+export const logout = async (req, res) => {
+  await req.flash("info", "Bye Bye");
   req.session.destroy();
-  req.flash("info", "Bye Bye");
   return res.redirect("/");
 };
 export const getEdit = (req, res) => {
