@@ -11,6 +11,7 @@ const multerUploader = multerS3({
     s3: s3,
     bucket: 'yangtubee',
     acl: 'public-read',
+    contentType: multerS3.AUTO_CONTENT_TYPE,
 })
 
 export const localsmiddleware = (req, res, next) => {
@@ -52,3 +53,20 @@ export const videoUpload = multer({
     },
     storage: multerUploader
 });
+export const s3DeleteAvatarMiddleware = (req, res, next) => {
+    if (!req.file) {
+        return next();
+    }
+    s3.deleteObject({
+            Bucket: `yangtubee`,
+            Key: `images/${req.session.user.avatarURL.split('/')[4]}`,
+        },
+        (err, data) => {
+            if (err) {
+                throw err;
+            }
+            console.log(`s3 deleteObject`, data);
+        }
+    );
+    next();
+};
