@@ -17,12 +17,12 @@ header
                     a(href="/videos/upload") Upload Video
                 li
                     a(href=`/users/${loggedInUser._id}`)
-                        if loggedInUser.avatarUrl
-                            img.header__avatar(src="/" + loggedInUser.avatarUrl)
+                        if loggedInUser.avatarUrl.includes("github")
+                            img.header__avatar(src=loggedInUser.avatarUrl)
                         else
                             span 🙂
             else
                 li 
                     a(href="/login") login
                 li
-                    a(href="/join").header__btn  Join
+                    a(href="/join").header__btn  Join 
