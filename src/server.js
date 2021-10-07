@@ -42,12 +42,12 @@ app.use(session({
     })
 
 }));
-
-app.use((req, res, next) => {
+// cross부분
+/*app.use((req, res, next) => {
     res.header("Cross-Origin-Embedder-Policy", "require-corp");
     res.header("Cross-Origin-Opener-Policy", "same-origin");
     next();
-});
+});*/
 app.use(flash());
 app.use(localsmiddleware);
 app.use("/uploads", express.static("uploads"));
